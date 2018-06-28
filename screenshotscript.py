@@ -15,7 +15,7 @@ email.send_keys("email-here")
 password = driver.find_element_by_name("pass")
 password.send_keys('password-here')
 password.send_keys(Keys.ENTER)
-driver.get('https://www.facebook.com/dickson.dokowe')
+driver.get('dickson\'s-profile-here')
 
 #For Scroll
 SCROLL_PAUSE_TIME = 1.5
@@ -39,4 +39,4 @@ pic.save('TheLie.png')
 #To upload the image
 graph = facebook.GraphAPI(access_token="access-token here", version="2.7")
 graph.put_photo(image=open('TheLie.png', 'rb'),
-                message='If you see this then it means I actually wrote a script to take a screenshot of Dickson\'s birthday. Yes, I am that petty. And wtf Dickson')
+                message='caption')

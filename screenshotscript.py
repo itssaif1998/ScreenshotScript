@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 import time
+import facebook
 
 #To open his profile
 chrome_options = Options()
@@ -10,9 +11,9 @@ chrome_options.add_argument("--disable-notifications")
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get('https://www.facebook.com')
 email = driver.find_element_by_name("email")
-email.send_keys("saif.mir123@yahoo.co.in")
+email.send_keys("email-here")
 password = driver.find_element_by_name("pass")
-password.send_keys('l19b1r9l6')
+password.send_keys('password-here')
 password.send_keys(Keys.ENTER)
 driver.get('https://www.facebook.com/dickson.dokowe')
 
@@ -36,4 +37,6 @@ pic = pyautogui.screenshot(region=(300,500, 800, 600))
 pic.save('TheLie.png')
 
 #To upload the image
-uploadElement = driver.find_element_by_id('uploadfile_0')
+graph = facebook.GraphAPI(access_token="access-token here", version="2.7")
+graph.put_photo(image=open('TheLie.png', 'rb'),
+                message='If you see this then it means I actually wrote a script to take a screenshot of Dickson\'s birthday. Yes, I am that petty. And wtf Dickson')
